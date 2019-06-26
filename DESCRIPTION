@@ -1,0 +1,16 @@
+Package: BERGMets
+Type: Package
+Title: Metabolomics data and analysis in the BERG
+Version: 0.1.0
+Author: Brian Carter
+Maintainer: Brian Carter <brian.carter@cancer.org>
+Description: This package provides analytic datasets for all of the BERG metabolomics data as well as several useful functions for doing some initial analyses.
+License: None
+Depends:
+	dplyr,
+	FitAR,
+	parallel,
+	ppcor,
+	magrittr
+Encoding: UTF-8
+LazyData: true
