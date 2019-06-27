@@ -74,7 +74,4 @@ if (is.null(compid) & is.null(IDlist)){
      metabolites <- list(metabolites=metdata, ID=ID, biochem=biochem)
      return(metabolites)
 }
-
-
-
 }

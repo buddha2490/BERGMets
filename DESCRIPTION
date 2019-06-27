@@ -11,6 +11,13 @@ Depends:
 	FitAR,
 	parallel,
 	ppcor,
-	magrittr
+	magrittr,
+	tibble,
+	SASxport,
+	foreign,
+	haven,
+	ggcorrplot,
+	pROC,
+	plotROC
 Encoding: UTF-8
 LazyData: true

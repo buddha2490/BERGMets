@@ -1,4 +1,4 @@
-metsAssoc <- function(dat,biochem,outcome,metabolites,
+metsAssoc <- function(dat,biochem,outcome,compid,
                             covariates=NULL,normalize=F) {
 
 whatmodel <- ifelse(length(unique(dat[[outcome]][!is.na(dat[[outcome]])])) < 2, NA, ifelse(
@@ -34,7 +34,7 @@ if (anyNA(dat[,covars])) {
 
 # Normalize the data if requested
 if (normalize==T) {
-     dat <- normalizeMets(dat,metabolites)
+     dat <- normalizeMets(dat,compid)
 }
 
 # Run the models
@@ -68,7 +68,7 @@ little.models <- function(x){
      return(f)
 }
 
-foo <- lapply(metabolites, little.models)
+foo <- lapply(compid, little.models)
 class(foo) <- "MetsResults"
 foo <- summary(foo)
 rm(mybiochem, envir=globalenv())

@@ -22,7 +22,7 @@ The biochemical metadata file.  Typically this is in the $biochem element of the
   \item{outcome}{
 Outcome for the analysis.  Logistic regression must be coded [0,1]; linear regression must be continuous numeric.  Function will identify which is which and will provide an error message if you code it wrong.
 }
-  \item{metabolites}{
+  \item{compid}{
 Vector of COMP_IDs used for the models
 }
   \item{intvar)}{
@@ -76,7 +76,7 @@ biochem <- breast_metabolomics$biochem[,c("COMP_ID","BIOCHEMICAL")]
      metsInt(dat=df,
                      biochem=biochem,
                      outcome="BMI",
-                     metabolites=comp.id,
+                     compid=comp.id,
                      intvar="agecat",
                      covariates=covars,
                      normalize=T)
@@ -85,7 +85,7 @@ biochem <- breast_metabolomics$biochem[,c("COMP_ID","BIOCHEMICAL")]
      metsInt(dat=df,
                biochem=biochem,
                outcome="BMI",
-               metabolites=comp.id,
+               compid=comp.id,
                intvar="AGE_INT",
                covariates=covars,
                normalize=T)

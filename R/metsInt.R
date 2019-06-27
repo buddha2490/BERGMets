@@ -1,6 +1,6 @@
 
 
-metsInt <- function(dat,biochem,outcome,metabolites,intvar,
+metsInt <- function(dat,biochem,outcome,compid,intvar,
                             covariates=NULL,normalize=F) {
 
 whatmodel <- ifelse(length(unique(dat[[outcome]][!is.na(dat[[outcome]])])) < 2, NA, ifelse(
@@ -35,12 +35,12 @@ if (anyNA(dat[,covars])) {
 }
 if (class(dat[[intvar]]) == "factor"){
      message(paste0(intvar,
-                    " is a factor variable.  Function will return models of metabolites stratified by ",
+                    " is a factor variable.  Function will return models of compid stratified by ",
                     intvar))
 }
 if (class(dat[[intvar]]) == "numeric"){
      message(paste0(intvar,
-                    " is a numeric variable.  Function will return models of (metabolites * ",intvar,")"))
+                    " is a numeric variable.  Function will return models of (compid * ",intvar,")"))
 }
 if (anyNA(dat[[intvar]])) {
      warning("Stratification variable includes missing values that will be dropped from models")
@@ -48,7 +48,7 @@ if (anyNA(dat[[intvar]])) {
 
 # Normalize the data if requested
 if (normalize==T) {
-     dat <- normalizeMets(dat,metabolites)
+     dat <- normalizeMets(dat,compid)
 }
 
 if (class(dat[[intvar]])=="numeric") type="interaction"
@@ -123,7 +123,7 @@ if (whatmodel=="Logistic"){
 }
 return(results)
 }
-foo <- lapply(metabolites,little.models)
+foo <- lapply(compid,little.models)
 foo <- Reduce(function(x,y) rbind(x,y), foo)
 foo <- dplyr::right_join(mybiochem,foo,"COMP_ID")
 rm(mybiochem, envir=globalenv())

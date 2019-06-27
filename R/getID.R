@@ -8,49 +8,27 @@
 # 6.  Validation_Blood
 # 7.  Validation_Urine
 
-getID <- function(dat,filepath){
+getID <- function(dat,filepath=NULL){
 
-     cps2 <- file.path("S:/CPS/BIOSPECIMENS/Metabolomics")
-     park <- file.path(cps2,"Parkinsons disease")
-     cps3 <- file.path("s:/CPS3/biospecimens/metabolomics")
+# Pull ID file
+metabolites <- getMetabolites(dat)
+ID <- metabolites$ID
+filename <- paste0("ID_",dat)
 
-     if (toupper(dat)=="BREAST_METABOLOMICS"){
-          load(file.path(cps2,"Breast cancer - NCIA-03-16ml/breast_metabolomics.rdata"))
-          cohort <- "CPS2"
-     }
-     if (toupper(dat)=="PARKINSONS_C8"){
-          load(file.path(park,"Parkinsons_C8.rdata"))
-          cohort <- "CPS2"
-     }
-     if (toupper(dat)=="PARKINSONS_HILICNEG"){
-          load(file.path(park,"PARKINSONS_HILICNEG.rdata"))
-          cohort <- "CPS2"
-     }
-     if (toupper(dat)=="PARKINSONS_HILICPOS"){
-          load(file.path(park,"PARKINSONS_HILICPOS.rdata"))
-          cohort <- "CPS2"
-     }
-     if (toupper(dat)=="PROSTATE_METABOLOMICS"){
-          load(file.path(cps2,"Prostate Cancer - ACS0-01-16MD+/prostate_metabolomics.rdata"))
-          cohort <- "CPS2"
-     }
-     if (toupper(dat)=="VALIDATION_BLOOD"){
-          load(file.path(cps3,"Validation study blood - ACS0-01-18ML/Validation_Blood.rdata"))
-          cohort <- "CPS3"
-     }
-     if (toupper(dat)=="VALIDATION_URINE"){
-          load(file.path(cps3,"Validation study urine - ACS0-02-18ML/Validation_Urine.rdata"))
-          cohort <- "CPS3"
+# Options:
+
+     # Write the ID file to the global environment - user can continue in R
+     if (is.null(filepath)){
+             Metabolomics_IDs <<- ID
+             message("IDs exported into the global environment.")
      }
 
-     # Pull ID file
-     ID <- metabolites$ID
-
-     # set filename
-     filename <- paste0("ID file from ",dat," - ",Sys.Date(),".sas7bdat")
-
-     # Write a SAS file of IDs
-     haven::write_sas(ID,file.path(filepath,filename))
-     message(paste0("ID file ", filename," has been written to ",filepath))
-
+if (!is.null(filepath)){
+             foreign::write.foreign(ID,
+                                    datafile=file.path(filepath,paste0(filename,".txt")),
+                                    codefile=file.path(filepath,(paste0("Import ",filename,".SAS"))),
+                                    package="SAS",
+                                    dataname=filename)
+             message("IDs saved using the foreign package.  See documentation for details how to import into SAS")
+        }
 }

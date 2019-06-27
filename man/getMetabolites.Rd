@@ -22,8 +22,6 @@ getMetabolites(dat, IDlist=NULL, compid=NULL)
 }
 \details{
 
-Users can access a help file for each of these metabolite files using the following commands:
-
 Users can pull data from any of 7 metabolomics projects using the following character strings. For more information, you can find documentation by searching the BERGMets documentation:
 
  1.  "breast_metabolomics"
@@ -53,7 +51,6 @@ getMetabolites will return a list of 3 objects:
 \author{
 Brian Carter
 }
-\seealso{
 
 \examples{
 
