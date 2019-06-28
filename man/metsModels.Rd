@@ -9,7 +9,7 @@ metsModels should do everything you need it to do.  If you include a intvar= var
 }
 \usage{
 metsModels(dat, biochem, outcome, metabolites,intvar=NULL,
-           covariates=NULL, normalize=F)
+           covariates=NULL, normalize=T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,7 +32,7 @@ Optional Name of interaction variable.  If left NULL, a simple association analy
 Optional.  Vector of covariate names from the dat data frame.
 }
   \item{normalize}{
-Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data.
+Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data.  Default is TRUE
 }
 }
 \details{
@@ -55,7 +55,7 @@ Both will return an overall p-value for the interaction.
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Brian Carter
 }
 \note{
 %%  ~~further notes~~
@@ -64,7 +64,7 @@ Both will return an overall p-value for the interaction.
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{metsAssoc}}, {\link{metsInt}}
+\code{\link{metsAssoc}}, \code{\link{metsInt}}, \code{\link{normalizeMets}}
 }
 \examples{
 breast_metabolomics <- getMetabolites("breast_metabolomics")

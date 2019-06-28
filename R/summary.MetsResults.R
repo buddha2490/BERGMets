@@ -34,7 +34,7 @@ summary.MetsStrat <- function(results){
         row.names(dat) <- NULL
         return(dat)
 })
-foo <- Reduce(function(x,y) merge(x,y,"COMP_ID",all=T), foo)
+foo <- Reduce(function(x,y) dplyr::full_join(x,y,"COMP_ID"), foo)
 foo$P.Interaction <- P.Int
 return(foo)
 }

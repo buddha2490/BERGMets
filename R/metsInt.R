@@ -1,7 +1,7 @@
 
 
 metsInt <- function(dat,biochem,outcome,compid,intvar,
-                            covariates=NULL,normalize=F) {
+                            covariates=NULL,normalize=T) {
 
 whatmodel <- ifelse(length(unique(dat[[outcome]][!is.na(dat[[outcome]])])) < 2, NA, ifelse(
      length(unique(dat[[outcome]][!is.na(dat[[outcome]])]))==2,"Logistic","Linear"))
@@ -48,6 +48,7 @@ if (anyNA(dat[[intvar]])) {
 
 # Normalize the data if requested
 if (normalize==T) {
+     message("Metabolite values will be log transformed, mean centered, and normalized prior to modeling")
      dat <- normalizeMets(dat,compid)
 }
 

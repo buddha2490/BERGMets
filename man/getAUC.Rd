@@ -8,7 +8,7 @@ Calculates AUC for a logistic regression.
 getAUC() takes a series of outcomes, metabolites, and covariates and calculates AUC for each model.  You can input as many outcomes and metabolites as you want.
 }
 \usage{
-getAUC(dat, outcome, compid, covariates=NULL, normalize=F)
+getAUC(dat, outcome, compid, covariates=NULL, normalize=T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,7 +20,7 @@ getAUC(dat, outcome, compid, covariates=NULL, normalize=F)
 }
   \item{covariates}{Vector of covariate variable names (optional)
 }
-  \item{normalize}{Normalize the data prior to modeling?  (default is FALSE)
+  \item{normalize}{Normalize the data prior to modeling?  (default is TRUE)
 }
 }
 \details{
@@ -42,7 +42,7 @@ Brian Carter
 }
 
 \seealso{
- \code{\link{pROC::roc}},
+ \code{\link{roc}},
  \code{\link{normalizeMets}},
 }
 \examples{

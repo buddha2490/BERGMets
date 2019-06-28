@@ -9,7 +9,7 @@ This function will run stratified or interaction models for metabolites with a c
 }
 \usage{
 metsInt(dat,biochem,outcome,metabolites,intvar,
-                covariates=NULL,normalize=F)
+                covariates=NULL,normalize=T)
 }
 
 \arguments{
@@ -32,7 +32,7 @@ Name of interaction variable.  If class(intvar)=="numeric", simple interaction m
 Optional.  Vector of covariate names from the dat data frame.
 }
   \item{normalize}{
-Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data.
+Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data. Default is TRUE.
 }
 }
 \details{
@@ -57,7 +57,9 @@ Brian Carter
 
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+ \code{\link{normalizeMets}},
+ \code{\link{metsAssoc}},
+ \code{\link{metsModels}},
 }
 \examples{
 

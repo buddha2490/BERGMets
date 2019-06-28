@@ -1,5 +1,5 @@
 
-getAUC <- function(dat, outcome, compid, covariates=NULL, normalize=F){
+getAUC <- function(dat, outcome, compid, covariates=NULL, normalize=T){
 
 # Data checks
 checkoutcome <- lapply(outcome, function(x) {
@@ -12,6 +12,9 @@ checkoutcome <- lapply(outcome, function(x) {
 checkoutcome <- checkoutcome[checkoutcome$coding != "Good" | checkoutcome$Class != "Good",]
 if (nrow(checkoutcome)>0){
      stop("Check coding on your outcome variables.  They must be NUMERIC and coded [0,1] for a logistic regresison")
+}
+if (normalize==T){
+   message("Metabolite values will be log transformed, mean centered, and normalized prior to modeling")
 }
 
 mydf <<- dat

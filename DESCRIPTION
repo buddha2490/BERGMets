@@ -19,5 +19,9 @@ Depends:
 	ggcorrplot,
 	pROC,
 	plotROC
+Imports:	
+	lme4
+Remotes: 
+	marklhc/bootmlm
 Encoding: UTF-8
 LazyData: true

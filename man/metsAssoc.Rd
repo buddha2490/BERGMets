@@ -8,9 +8,8 @@ Basic metabolomics association analysis.
 This function will run a basic association analysis adjusted for covariates for a given list of metabolites.  Depending on the outcome, the function will choose a linear or logistic regression model.  It will calculate the associations between outcome and each metabolite, merge with the metadata files, and return an organized table.
 }
 \usage{
-metsAssoc(dat, biochem, outcome, metabolites, covariates=NULL, normalize=F)
+metsAssoc(dat, biochem, outcome, metabolites, covariates=NULL, normalize=T)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dat}{
 data frame containing your metabolites and covariates
@@ -28,14 +27,19 @@ Vector of COMP_IDs used for the models
 Optional.  Vector of covariate names from the dat data frame.
 }
   \item{normalize}{
-Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data.
+Logical. Set to TRUE if you haven't already mean-centered and glog transformed your metabolite data. Default is TRUE.
 }
 }
 \details{
-
+This function will run simple association models (either linear or logistic regressions).  I recommend that you use the metsModels() function which is a wrapper for all sorts of metabolomics models.  It will either run metsAssoc() or metsInt() depending on the inputs.
 }
 \value{
 Data frame organizing the associations and p-values for all metabolites.
+}
+\seealso{
+ \code{\link{normalizeMets}},
+ \code{\link{metsInt}},
+ \code{\link{metsModels}},
 }
 \author{
 Brian Carter
