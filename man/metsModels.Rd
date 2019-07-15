@@ -8,7 +8,7 @@ Wrapper function that will run association, interaction, or stratified models
 metsModels should do everything you need it to do.  If you include a intvar= variable, the function will run interaction or stratified models (depending on intvar class, see details).  If the intvar= argument is left NULL, simple association models will be returned.
 }
 \usage{
-metsModels(dat, biochem, outcome, metabolites,intvar=NULL,
+metsModels(dat, biochem, outcome, compid,intvar=NULL,
            covariates=NULL, normalize=T)
 }
 %- maybe also 'usage' for other objects documented here.

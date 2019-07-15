@@ -1,5 +1,7 @@
 
 
+
+
 metsHeatmap <- function(dat,compid,covariates=NULL,biochem=NULL,method="pearson",
                         hclust=T,title,subtitle=NULL,plot_colors=NULL,
                         xaxis_size=7, yaxis_size=7,
@@ -92,5 +94,6 @@ metsHeatmap <- function(dat,compid,covariates=NULL,biochem=NULL,method="pearson"
      g$data$Var1 <- factor(g$data$Var1,v$COMP_ID,v$order)
      }
      )
+     return(g + heatTheme)
 }
 

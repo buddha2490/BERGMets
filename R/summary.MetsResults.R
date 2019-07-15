@@ -7,7 +7,7 @@ summary.MetsResults <- function(dat){
         dat$Association <- paste0(dat$Estimate, " (",
                                   dat$LL,", ",
                                   dat$UL,")")
-     dat$P.val <- format(dat$P,scientific=T, digits=3)
+     dat$P.val <- dat$P
      dat <- dplyr::select(dat, -Estimate, -LL, -UL, -P)
      dat$Association <- sub("^\\s+", "", dat$Association)
      row.names(dat) <- NULL
@@ -26,8 +26,8 @@ summary.MetsStrat <- function(results){
         dat$Association <- paste0(dat$Estimate, " (",
                                   dat$LL,", ",
                                   dat$UL,")")
-        dat$P.val <- format(dat$P, scientific=T, digits=3)
-        dat$P_Int <- format(dat$P, scientific=T, digits=3)
+        dat$P.val <- dat$P
+        dat$P_Int <- P.Int
         dat <- dat[,c("COMP_ID","Association","P.val")]
         dat$Association <- sub("^\\s+", "",dat$Association)
         names(dat) <- c("COMP_ID", paste0(strata,":",c("Association","P")))

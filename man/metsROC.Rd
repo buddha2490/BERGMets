@@ -8,7 +8,9 @@ Creates ROC curves using ggplot()
 Users provide a binary outcome, metabolites, and covariates.  Logistic regression models are fit for each of the metabolites and ROC curves are returned.  Users have the choice of plotting single or multiple curves on each figure.
 }
 \usage{
-metsROC(dat, outcome, compid, covariates, normalize=T, xlabel = "1 - Specificity", ylabel = "Sensitivity", title = NULL, colors = NULL, title_size = 10, subtitle_size = 10, xaxis_size = 9, yaxis_size = 9, plot_theme = NULL)
+metsROC(dat, outcome, compid, covariates, normalize=T, xlabel = "1 - Specificity",
+ylabel = "Sensitivity", title = NULL, colors = NULL, title_size = 10,
+subtitle_size = 10, xaxis_size = 9, yaxis_size = 9, plot_theme = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -63,7 +65,7 @@ a ggplot2 object
 }
 
 \author{
-Brian Carter
+Brian Carter and Becky Hodge
 }
 \seealso{
  \code{\link{ggplot2}},

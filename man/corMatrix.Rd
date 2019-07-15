@@ -8,7 +8,7 @@ Calculates a correlation matrix adjusting for covariates
 The corMatrix() will calculate correlation matrices between source and target variables.  If users include a vector of covariates, corMatrix() will calculate partial correlations adjusted for these covariates.  See details.
 }
 \usage{
-corMatrix(dat, target, source, covariates, method="pearson")
+corMatrix(dat, target, source, covariates = NULL, method="pearson")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -39,7 +39,7 @@ Correlation matrix:  Rows=target;  Columns=source.  Diagonal==1.0
 }
 
 \author{
-Brian Carter
+Brian Carter and Becky Hodge
 }
 
 

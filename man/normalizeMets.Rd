@@ -5,7 +5,7 @@
 Normalize metabolite data prior to analyses
 }
 \description{
-This function mean centers and log-transforms metabolite data.  This should be done prior to any analysis, although the function can also be done on the fly in the modeling functions by setting the normalize=TRUE argument.
+This function normalizes metabolite values by creating a log-transformed z-score.  This should be done prior to any analysis, although the function can also be done on the fly in the modeling functions by setting the normalize=TRUE argument.
 
 Users have the choice of normalizing an entire dataset or selected metabolites. It is important that the data be subset to your analytic sample prior to running the function.  Either merge with your covariate data or subset the IDs.
 }

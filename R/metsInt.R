@@ -30,7 +30,7 @@ if (whatmodel=="Linear"){
         warning(paste0("Outcome variable contains ",n," missing values that will be dropped from models"))
      }
 }
-if (anyNA(dat[,covars])) {
+if (anyNA(dat[,covariates])) {
      warning("Covariates include missing values and will be dropped from models")
 }
 if (class(dat[[intvar]]) == "factor"){

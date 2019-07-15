@@ -38,7 +38,7 @@ If multiple outcomes are requested, getAUC() will return a list.  Each data fram
 %% ~put references to the literature/web site here ~
 }
 \author{
-Brian Carter
+Brian Carter and Becky Hodge
 }
 
 \seealso{
